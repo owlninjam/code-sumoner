@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Summoner: C Compiler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="stars"></div>
+        <div class="magic-overlay"></div>
+    </div>
+
+    <div class="summoner-container">
+        <header class="summoner-header">
+            <div class="character-container">
+                <div class="character-avatar">
+                    <div class="avatar-glow"></div>
+                </div>
+                <h1 class="summoner-title">Code Summoning Chamber</h1>
+            </div>
+        </header>
+
+        <main class="summoning-interface">
+            <div class="code-summoning-area">
+                <textarea id="codeSummoningScroll" class="summoning-scroll" placeholder="Inscribe your code incantation...">
+#include <stdio.h>
+
+int main() {
+    printf("Magical Realms Awaken!\n");
+    return 0;
+}
+                </textarea>
+                
+                <div class="summoning-controls">
+                    <button id="summonSpellBtn" class="summoning-crystal primary-crystal">
+                        <span class="crystal-pulse"></span>
+                        <span class="crystal-text">Invoke Spell</span>
+                    </button>
+                    
+                    <button id="resetSummoningBtn" class="summoning-crystal secondary-crystal">
+                        <span class="crystal-pulse"></span>
+                        <span class="crystal-text">Reset Incantation</span>
+                    </button>
+                    
+                    <button id="spellArchiveBtn" class="summoning-crystal tertiary-crystal">
+                        <span class="crystal-pulse"></span>
+                        <span class="crystal-text">Spell Archives</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="summoning-results">
+                <div id="spellOutcome" class="outcome-scroll"></div>
+                <div id="summoningErrors" class="error-realm"></div>
+            </div>
+
+            <div id="spellArchive" class="archive-realm hidden">
+                <h2 class="archive-title">Arcane Code Archives</h2>
+                <div class="spell-codex">
+                    <div class="spell-sigil" data-spell="realm-greeting">
+                        <div class="sigil-essence">Realm Greeting Spell</div>
+                    </div>
+                    <div class="spell-sigil" data-spell="elemental-calculation">
+                        <div class="sigil-essence">Elemental Calculation</div>
+                    </div>
+                    <div class="spell-sigil" data-spell="dimensional-logic">
+                        <div class="sigil-essence">Dimensional Logic</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="mystical-overlay"></div>
+    
+    <script src="compiler.js"></script>
+</body>
+</html>
