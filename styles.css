@@ -1,0 +1,156 @@
+:root {
+    --primary-color: #4A148C;
+    --secondary-color: #6A1B9A;
+    --accent-color: #9C27B0;
+    --background-primary: #120018;
+    --background-secondary: #1F0029;
+    --text-primary: #E1BEE7;
+    --text-secondary: #CE93D8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(45deg, var(--background-primary), var(--background-secondary));
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    perspective: 1000px;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, rgba(17,23,53,0.8) 0%, rgba(9,10,15,0.9) 100%);
+    animation: starTwinkle 10s infinite alternate;
+}
+
+.summoner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    transform-style: preserve-3d;
+}
+
+.summoner-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.character-container {
+    text-align: center;
+    position: relative;
+}
+
+.character-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    margin: 0 auto 15px;
+    box-shadow: 0 0 30px rgba(156,39,176,0.5);
+    animation: avatarPulse 3s infinite alternate;
+}
+
+.summoning-scroll {
+    width: 100%;
+    min-height: 300px;
+    background: rgba(31,0,41,0.7);
+    border: 2px solid var(--accent-color);
+    color: var(--text-primary);
+    font-family: 'Roboto Mono', monospace;
+    padding: 15px;
+    border-radius: 10px;
+    resize: vertical;
+}
+
+.summoning-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.summoning-crystal {
+    position: relative;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.crystal-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.5s ease;
+}
+
+.summoning-crystal:hover .crystal-pulse {
+    width: 300%;
+    height: 300%;
+}
+
+.primary-crystal {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-primary);
+}
+
+.secondary-crystal {
+    background: linear-gradient(135deg, #5D1049, #380830);
+    color: var(--text-secondary);
+}
+
+.tertiary-crystal {
+    background: linear-gradient(135deg, #2C003E, #1A001F);
+    color: var(--text-secondary);
+}
+
+@keyframes starTwinkle {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+@keyframes avatarPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+@media (max-width: 768px) {
+    .summoning-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .summoning-crystal {
+        width: 100%;
+    }
+}
